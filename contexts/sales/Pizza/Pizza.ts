@@ -39,13 +39,11 @@ export class Pizza {
   }
 
   toJSON() {
-    const { id, name, ingredients, price } = this
-
     return {
-      id,
-      name,
-      ingredients: ingredients.map(ingredient => ingredient.toJSON()),
-      price
+      id: this.id.toString(),
+      name: this.name.toString(),
+      ingredients: this.ingredients.map(ingredient => ingredient.toJSON()),
+      price: this.price.toNumber()
     }
   }
 
