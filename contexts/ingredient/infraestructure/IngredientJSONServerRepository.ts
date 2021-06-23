@@ -1,23 +1,19 @@
-import { Fetcher } from '../../shared/types/fetcher'
 import { Ingredient } from '../domain/Ingredient'
 import { IngredientRepository } from '../domain/IngredientsRepository'
 
 interface IIngredientJSONServerRepository {
   baseUrl: string
-  fetcher: Fetcher
 }
 
 export class IngredientJSONServerRepository implements IngredientRepository {
   readonly baseUrl: string
-  readonly fetcher: Fetcher
 
-  constructor({ baseUrl, fetcher }: IIngredientJSONServerRepository) {
+  constructor({ baseUrl }: IIngredientJSONServerRepository) {
     this.baseUrl = baseUrl
-    this.fetcher = fetcher
   }
 
   async getAll() {
-    const response = await this.fetcher(this.baseUrl)
+    const response = await fetch(`${this.baseUrl}/ingredients`)
     const data = (await response.json()) as Promise<
       Array<{ name: string; price: number }>
     >

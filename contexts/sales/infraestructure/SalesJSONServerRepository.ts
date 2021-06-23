@@ -6,7 +6,6 @@ import { Ingredient } from '../../ingredient/domain/Ingredient'
 import { Pizza } from '../../pizza/domain/Pizza'
 import { PizzaId } from '../../pizza/domain/PizzaId'
 import { PizzaName } from '../../pizza/domain/PizzaName'
-import { Fetcher } from '../../shared/types/fetcher'
 import { Sale } from '../domain/Sale'
 import { SaleDate } from '../domain/SaleDate'
 import { SaleId } from '../domain/SaleId'
@@ -14,7 +13,6 @@ import { CreateSaleParams, SalesRepository } from '../domain/SalesRepository'
 
 interface ISalesJSONServerRepository {
   baseUrl: string
-  fetcher: Fetcher
 }
 
 type SalesJSONServerRepositoryResponse = {
@@ -38,15 +36,13 @@ type SalesJSONServerRepositoryResponse = {
 
 export class SalesJSONServerRepository implements SalesRepository {
   readonly baseUrl: string
-  readonly fetcher: Fetcher
 
-  constructor({ baseUrl, fetcher }: ISalesJSONServerRepository) {
+  constructor({ baseUrl }: ISalesJSONServerRepository) {
     this.baseUrl = baseUrl
-    this.fetcher = fetcher
   }
 
   async findAll() {
-    const response = await this.fetcher(this.baseUrl)
+    const response = await fetch(`${this.baseUrl}/sales`)
     const data = (await response.json()) as SalesJSONServerRepositoryResponse[]
 
     return data.map(
@@ -71,7 +67,7 @@ export class SalesJSONServerRepository implements SalesRepository {
   }
 
   async find(id: SaleId) {
-    const response = await this.fetcher(`${this.baseUrl}/${id.value}`)
+    const response = await fetch(`${this.baseUrl}/sales/${id.value}`)
     const data = (await response.json()) as SalesJSONServerRepositoryResponse
 
     return new Sale({
@@ -99,7 +95,7 @@ export class SalesJSONServerRepository implements SalesRepository {
       buyer: buyer.toJSON()
     }
 
-    const response = await this.fetcher(this.baseUrl, {
+    const response = await fetch(this.baseUrl, {
       method: 'POST',
       body: JSON.stringify(body)
     })

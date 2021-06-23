@@ -5,7 +5,6 @@ import { CreatePizza } from './pizza/use-cases/CreatePizza'
 import { SalesJSONServerRepository } from './sales/infraestructure/SalesJSONServerRepository'
 import { CreateSale } from './sales/use-cases/CreateSale'
 import { GetAllSales } from './sales/use-cases/GetAllSales'
-import { Fetcher } from './shared/types/fetcher'
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || ''
 
@@ -19,51 +18,30 @@ export type PizzaHabiUseCaseNames =
 class PizzaHabiUseCasesFactory {
   static createPizzaUseCase = () => new CreatePizza()
   static createBuyerUseCase = () => new CreateBuyer()
-  static getIngredientsUseCase = ({
-    baseUrl,
-    fetcher
-  }: {
-    baseUrl: string
-    fetcher: Fetcher
-  }) =>
+  static getIngredientsUseCase = ({ baseUrl }: { baseUrl: string }) =>
     new GetIngredients({
-      repository: new IngredientJSONServerRepository({ baseUrl, fetcher })
+      repository: new IngredientJSONServerRepository({ baseUrl })
     })
-  static createSaleUseCase = ({
-    baseUrl,
-    fetcher
-  }: {
-    baseUrl: string
-    fetcher: Fetcher
-  }) =>
+  static createSaleUseCase = ({ baseUrl }: { baseUrl: string }) =>
     new CreateSale({
-      repository: new SalesJSONServerRepository({ baseUrl, fetcher })
+      repository: new SalesJSONServerRepository({ baseUrl })
     })
-  static getAllSalesUseCase = ({
-    baseUrl,
-    fetcher
-  }: {
-    baseUrl: string
-    fetcher: Fetcher
-  }) =>
+  static getAllSalesUseCase = ({ baseUrl }: { baseUrl: string }) =>
     new GetAllSales({
-      repository: new SalesJSONServerRepository({ baseUrl, fetcher })
+      repository: new SalesJSONServerRepository({ baseUrl })
     })
 }
 
-export const PizzaHabi = {
+export const pizzaHabiUseCases = {
   create_pizza: PizzaHabiUseCasesFactory.createPizzaUseCase(),
   create_buyer: PizzaHabiUseCasesFactory.createBuyerUseCase(),
   get_ingredients: PizzaHabiUseCasesFactory.getIngredientsUseCase({
-    baseUrl: BASE_URL,
-    fetcher: window.fetch
+    baseUrl: BASE_URL
   }),
   create_sale: PizzaHabiUseCasesFactory.createSaleUseCase({
-    baseUrl: BASE_URL,
-    fetcher: window.fetch
+    baseUrl: BASE_URL
   }),
   get_all_sales: PizzaHabiUseCasesFactory.getAllSalesUseCase({
-    baseUrl: BASE_URL,
-    fetcher: window.fetch
+    baseUrl: BASE_URL
   })
 }

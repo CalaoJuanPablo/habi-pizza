@@ -48,17 +48,8 @@ export class Pizza {
     }
   }
 
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient)
-
-    this.calculatePrice()
-  }
-
-  removeIngredient(ingredient: Ingredient) {
-    this.ingredients = this.ingredients.filter(
-      ingr => ingr.name !== ingredient.name
-    )
-
+  updateIngredients(ingredients: Ingredient[]) {
+    this.ingredients = ingredients
     this.calculatePrice()
   }
 
