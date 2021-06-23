@@ -52,14 +52,17 @@ cd habi-pizza
 npm install
 ```
 
-3. Levantar el servidor de backend
+3. Añadir variables de entorno
+La manera más simple de habilitar el entorno en el ambiente local es crear un archivo `.env.local` en la raiz del proyecto, con las variables descritas en `.env.example`. el valor de la variable `NEXT_PUBLIC_API_URL` es `http://localhost:3500` (La ruta principal del servidor de backend).
+
+4. Levantar el servidor de backend
 ```
 npm run start:server
 ```
 
-4. Levantar el servidor de frontend
+5. Levantar el servidor de frontend
 ```
 npm run dev
 ```
 
-5. El proyecto se estará ejecutando en `localhost:3000`
+6. El proyecto se estará ejecutando en `localhost:3000`
