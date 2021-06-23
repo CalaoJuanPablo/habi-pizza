@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { HomePage } from '../frontend/components/HomePage'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
 
       <main>
         <h1>Habi Pizza</h1>
+        <HomePage />
       </main>
     </div>
   )
