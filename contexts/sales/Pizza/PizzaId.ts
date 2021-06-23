@@ -1,3 +1,3 @@
-import { Uuid } from '../../shared/Uuid'
+import { Uuid } from '../../shared/value-objects/Uuid'
 
 export class PizzaId extends Uuid {}

@@ -1,3 +1,65 @@
 {
-  "sales": []
+  "sales": [],
+  "ingredients": [
+    {
+    "name": "pollo",
+    "price": 5000
+  },
+    {
+    "name": "salami",
+    "price": 4500
+  },
+    {
+    "name": "jamon",
+    "price": 3000
+  },
+    {
+    "name": "piña",
+    "price": 3000
+  },
+    {
+    "name": "chorizo",
+    "price": 3000
+  },
+    {
+    "name": "butifarra",
+    "price": 3000
+  },
+    {
+    "name": "peperoni",
+    "price": 3000
+  },
+    {
+    "name": "champiñones",
+    "price": 3000
+  },
+    {
+    "name": "aceitunas",
+    "price": 3000
+  },
+    {
+    "name": "tocineta",
+    "price": 3000
+  },
+    {
+    "name": "tomate",
+    "price": 3000
+  },
+    {
+    "name": "pimentón",
+    "price": 3000
+  },
+    {
+    "name": "cebolla",
+    "price": 3000
+  },
+    {
+    "name": "maíz",
+    "price": 3000
+  },
+    {
+    "name": "carne",
+    "price": 3000
+  }
+]
 }
