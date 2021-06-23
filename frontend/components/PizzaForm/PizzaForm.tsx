@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { PizzaFormProps } from './types'
+import { PizzaFormProps, IFormInput } from './types'
 import Select from 'react-select'
 import { useForm, Controller } from 'react-hook-form'
 import { capitalize } from '../../helpers'
@@ -8,13 +8,10 @@ import { Ingredient } from '../../../contexts/ingredient/domain/Ingredient'
 
 type selectOption = { label: string; value: string }
 
-interface IFormInput {
-  selectedIngredients: selectOption[]
-}
-
 export const PizzaForm: FC<PizzaFormProps> = ({
   ingredients,
-  pizzaInstance
+  pizzaInstance,
+  onChangeStepFW
 }) => {
   const [selectedIngredientsValue, setSelectedIngredientsValue] = useState<
     selectOption[]
@@ -36,16 +33,7 @@ export const PizzaForm: FC<PizzaFormProps> = ({
   const { control, handleSubmit } = useForm<IFormInput>()
 
   const onSubmit = (data: IFormInput) => {
-    const ingrValuesArr = data.selectedIngredients.map(ingr => ingr.value)
-    const selectedIngredients = ingrValuesArr.map(
-      value => ingredientsByName[value]
-    )
-
-    pizzaInstance.updateIngredients(
-      selectedIngredients.map(
-        ({ name, price }) => new Ingredient({ name, price })
-      )
-    )
+    onChangeStepFW()
   }
 
   return (
@@ -80,7 +68,7 @@ export const PizzaForm: FC<PizzaFormProps> = ({
 
       <h1>{pizzaInstance.price.value}</h1>
 
-      <button type='submit'>Calcular precio</button>
+      <button type='submit'>Ingresar información del comprador</button>
     </form>
   )
 }

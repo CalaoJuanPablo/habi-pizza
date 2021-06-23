@@ -3,8 +3,10 @@ import { pizzaHabiUseCases } from '../../../contexts'
 import { Pizza } from '../../../contexts/pizza/domain/Pizza'
 import { IngredientRawType } from './types'
 import { PizzaForm } from '../PizzaForm'
+import { BuyerForm } from '../BuyerForm'
 
 export const HomePage: FC = () => {
+  const [step, setStep] = useState<'step_one' | 'step_two' | null>(null)
   const [pizza, setPizza] = useState<Pizza>()
   const [ingredients, setIngredients] = useState<{
     loading: boolean
@@ -26,6 +28,8 @@ export const HomePage: FC = () => {
           ingredients: []
         })
       )
+
+      setStep('step_one')
     } catch (err) {
       setIngredients({ loading: false, data: null, error: err })
       console.error(err)
@@ -39,8 +43,21 @@ export const HomePage: FC = () => {
         <button onClick={handleNewPizzaClick}>Crear nueva pizza</button>
       )}
       {ingredients.error && <h3>Ha ocurrido un error. Intenta nuevamente</h3>}
-      {ingredients.data && ingredients.data.length > 0 && pizza && (
-        <PizzaForm ingredients={ingredients.data} pizzaInstance={pizza} />
+      {ingredients.data &&
+        ingredients.data.length > 0 &&
+        pizza &&
+        step === 'step_one' && (
+          <PizzaForm
+            ingredients={ingredients.data}
+            pizzaInstance={pizza}
+            onChangeStepFW={() => setStep('step_two')}
+          />
+        )}
+      {pizza && step === 'step_two' && (
+        <BuyerForm
+          pizzaInstance={pizza}
+          onChangeStepBW={() => setStep('step_one')}
+        />
       )}
     </>
   )

@@ -12,6 +12,7 @@ server.use(middlewares)
 server.use(jsonServer.bodyParser)
 server.use((req, res, next) => {
   if (req.method === 'POST') {
+    console.log('REQ BODY', req.body)
     req.body.createdAt = Date.now()
   }
 

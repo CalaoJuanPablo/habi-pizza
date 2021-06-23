@@ -95,7 +95,13 @@ export class SalesJSONServerRepository implements SalesRepository {
       buyer: buyer.toJSON()
     }
 
-    const response = await fetch(this.baseUrl, {
+    console.log('BODY', body)
+
+    const response = await fetch(`${this.baseUrl}/sales`, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
       method: 'POST',
       body: JSON.stringify(body)
     })
