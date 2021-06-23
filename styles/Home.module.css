@@ -3,6 +3,29 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 0.5rem;
-  display: flex;
   height: 100vh;
+  display: grid;
+  grid-template-rows: 200px 1fr 150px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.footer_link {
+  text-decoration: underline;
+}
+
+.footer_link:hover {
+  color: #EE6352;
 }

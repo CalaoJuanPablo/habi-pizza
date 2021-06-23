@@ -1,0 +1,22 @@
+.select_container {
+    margin-top: 1rem;
+    color: black;
+}
+
+.price {
+    font-size: 3rem;
+}
+
+.button {
+    background-color: #2ec4b6;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 4px #24a094;
+    width: fit-content;
+  }
+  

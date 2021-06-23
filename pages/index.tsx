@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { HomePage } from '../frontend/components/HomePage'
 
@@ -11,10 +12,21 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main>
+      <header className={styles.header}>
         <h1>Habi Pizza</h1>
+        <Image src='/habiPizza.svg' alt='Habi Pizza' width={80} height={80} />
+      </header>
+      <main>
         <HomePage />
       </main>
+      <footer className={styles.footer}>
+        <a
+          href='https://github.com/CalaoJuanPablo'
+          className={styles.footer_link}
+        >
+          @CalaoJuanPablo
+        </a>
+      </footer>
     </div>
   )
 }

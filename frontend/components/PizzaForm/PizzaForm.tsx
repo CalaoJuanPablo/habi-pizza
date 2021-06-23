@@ -1,10 +1,11 @@
 import { FC, useState } from 'react'
 import { PizzaFormProps, IFormInput } from './types'
 import Select from 'react-select'
-import { useForm, Controller } from 'react-hook-form'
-import { capitalize } from '../../helpers'
+import { useForm, Controller, FieldError } from 'react-hook-form'
+import { capitalize, parseCurrency } from '../../helpers'
 import { IngredientRawType } from '../HomePage'
 import { Ingredient } from '../../../contexts/ingredient/domain/Ingredient'
+import styles from './PizzaForm.module.css'
 
 type selectOption = { label: string; value: string }
 
@@ -25,10 +26,12 @@ export const PizzaForm: FC<PizzaFormProps> = ({
     },
     {}
   )
-  const ingredientsMappedForSelectOptions = ingredients.map(({ name }) => ({
-    label: capitalize(name),
-    value: name
-  }))
+  const ingredientsMappedForSelectOptions = ingredients.map(
+    ({ name, price }) => ({
+      label: `${capitalize(name)} - ${parseCurrency(price)}`,
+      value: name
+    })
+  )
 
   const { control, handleSubmit } = useForm<IFormInput>()
 
@@ -37,38 +40,45 @@ export const PizzaForm: FC<PizzaFormProps> = ({
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Escoge los sabores que desees</label>
-      <Controller
-        name='selectedIngredients'
-        render={({ field }) => (
-          <Select
-            {...field}
-            isMulti
-            onChange={data => {
-              const ingrValuesArr = data.map(ingr => ingr.value)
-              const selectedIngredients = ingrValuesArr.map(
-                value => ingredientsByName[value]
-              )
-
-              pizzaInstance.updateIngredients(
-                selectedIngredients.map(
-                  ({ name, price }) => new Ingredient({ name, price })
+    <form className={styles.PizzaForm} onSubmit={handleSubmit(onSubmit)}>
+      <h2>Prepara tu pizza con los ingredientes que desees</h2>
+      <label>Escoge los ingredientes</label>
+      <div className={styles.select_container}>
+        <Controller
+          name='selectedIngredients'
+          render={({ field }) => (
+            <Select
+              {...field}
+              isMulti
+              onChange={data => {
+                const ingrValuesArr = data.map(ingr => ingr.value)
+                const selectedIngredients = ingrValuesArr.map(
+                  value => ingredientsByName[value]
                 )
-              )
 
-              setSelectedIngredientsValue(data as selectOption[])
-            }}
-            value={selectedIngredientsValue}
-            options={ingredientsMappedForSelectOptions}
-          />
-        )}
-        control={control}
-      />
+                pizzaInstance.updateIngredients(
+                  selectedIngredients.map(
+                    ({ name, price }) => new Ingredient({ name, price })
+                  )
+                )
 
-      <h1>{pizzaInstance.price.value}</h1>
+                setSelectedIngredientsValue(data as selectOption[])
+              }}
+              value={selectedIngredientsValue}
+              options={ingredientsMappedForSelectOptions}
+            />
+          )}
+          control={control}
+        />
+      </div>
 
-      <button type='submit'>Ingresar información del comprador</button>
+      <h1 className={styles.price}>
+        {parseCurrency(pizzaInstance.price.value)}
+      </h1>
+
+      <button className={styles.button} type='submit'>
+        Ingresar información del comprador
+      </button>
     </form>
   )
 }

@@ -1,6 +1,8 @@
 # Habi Pizza
 Este proyecto es una app para registrar ordenes de pizzas, como una aproximación al clean architecture y el domain driven design. El objetivo de hacerlo de esta manera es tener un código altamente cohesionado y altamente desacoplado, lo que lo hace facil de mantener, de testear y de extender; además que permite migrar de tecnologías de base de datos, UI, y cualquier sistema externo sin tener que reescribir el core de la aplicación, que contiene la lógica de negocio.
 
+En [este link](https://miro.com/app/board/o9J_l-SjQzg=/) se podrá ver un esquema general del sistema basado en Event Storming
+
 ## Estructura
 
 ```

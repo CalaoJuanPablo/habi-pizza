@@ -3,6 +3,7 @@ import { Pizza } from '../../../contexts/pizza/domain/Pizza'
 export type BuyerFormProps = {
   pizzaInstance: Pizza
   onChangeStepBW(): void
+  onReturnToHome(): void
 }
 
 export interface IFormInput {
