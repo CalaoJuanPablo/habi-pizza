@@ -1,15 +1,16 @@
-import { Sale } from './../Sale'
-import { SaleId } from '../SaleId'
-import { SalesRepository } from '../SalesRepository'
+import { Fetcher } from '../../shared/types/fetcher'
+import { Sale } from '../domain/Sale'
+import { SaleId } from '../domain/SaleId'
+import { SalesRepository } from '../domain/SalesRepository'
 
 interface ISalesJSONServerRepository {
   baseUrl: string
-  fetcher: (url: string, params?: RequestInit) => Promise<Response>
+  fetcher: Fetcher
 }
 
 export class SalesJSONServerRepository implements SalesRepository {
   readonly baseUrl: string
-  readonly fetcher: (url: string, params?: RequestInit) => Promise<Response>
+  readonly fetcher: Fetcher
 
   constructor({ baseUrl, fetcher }: ISalesJSONServerRepository) {
     this.baseUrl = baseUrl

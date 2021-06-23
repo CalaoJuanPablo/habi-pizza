@@ -1,6 +1,6 @@
 import { PizzaId } from './PizzaId'
 import { PizzaName } from './PizzaName'
-import { IIngredient, Ingredient } from '../ingredient/Ingredient'
+import { IIngredient, Ingredient } from '../../ingredient/domain/Ingredient'
 import { PizzaPrice } from './PizzaPrice'
 
 const BASE_PRICE = 10000

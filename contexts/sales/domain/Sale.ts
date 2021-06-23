@@ -1,5 +1,5 @@
-import { Buyer } from './buyer/Buyer'
-import { Pizza } from './pizza/Pizza'
+import { Buyer } from '../../buyer/domain/Buyer'
+import { Pizza } from '../../pizza/domain/Pizza'
 import { SaleDate } from './SaleDate'
 import { SaleId } from './SaleId'
 

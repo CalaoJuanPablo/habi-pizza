@@ -1,8 +1,8 @@
-import { PizzaId } from './../pizza/PizzaId'
+import { PizzaId } from '../domain/PizzaId'
 import { UseCase } from '../../shared/interfaces/UseCase'
-import { Pizza } from '../pizza/Pizza'
-import { PizzaName } from '../pizza/PizzaName'
-import { Ingredient } from '../ingredient/Ingredient'
+import { Pizza } from '../domain/Pizza'
+import { PizzaName } from '../domain/PizzaName'
+import { Ingredient } from '../../ingredient/domain/Ingredient'
 
 type CreatePizzaParams = {
   name: string

@@ -1,14 +1,15 @@
-import { Ingredient } from '../ingredient/Ingredient'
-import { IngredientRepository } from '../ingredient/IngredientsRepository'
+import { Fetcher } from '../../shared/types/fetcher'
+import { Ingredient } from '../domain/Ingredient'
+import { IngredientRepository } from '../domain/IngredientsRepository'
 
 interface IIngredientJSONServerRepository {
   baseUrl: string
-  fetcher: (url: string, params?: RequestInit) => Promise<Response>
+  fetcher: Fetcher
 }
 
 export class IngredientJSONServerRepository implements IngredientRepository {
   readonly baseUrl: string
-  readonly fetcher: (url: string, params?: RequestInit) => Promise<Response>
+  readonly fetcher: Fetcher
 
   constructor({ baseUrl, fetcher }: IIngredientJSONServerRepository) {
     this.baseUrl = baseUrl

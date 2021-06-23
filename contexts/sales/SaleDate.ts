@@ -1,3 +1,0 @@
-import { NumberValueObject } from '../shared/value-objects/NumberValueObject'
-
-export class SaleDate extends NumberValueObject {}
