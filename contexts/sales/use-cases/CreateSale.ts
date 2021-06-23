@@ -5,11 +5,11 @@ import { Pizza } from '../../pizza/domain/Pizza'
 import { Buyer } from '../../buyer/domain/Buyer'
 import { SaleId } from '../domain/SaleId'
 
-interface ICreateSale {
+export interface ICreateSale {
   repository: SalesRepository
 }
 
-type CreateSaleParams = {
+export type CreateSaleParams = {
   pizza: Pizza
   buyer: Buyer
 }

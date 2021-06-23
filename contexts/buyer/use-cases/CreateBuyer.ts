@@ -1,16 +1,16 @@
-import { UseCase } from '../../shared/interfaces/UseCase'
+import { UseCaseAsync } from '../../shared/interfaces/UseCase'
 import { Buyer } from '../domain/Buyer'
 import { BuyerId } from '../domain/BuyerId'
 import { BuyerName } from '../domain/BuyerName'
 import { BuyerPhoneNumber } from '../domain/BuyerPhoneNumber'
 
-type CreateBuyerParams = {
+export type CreateBuyerParams = {
   name: string
   phonNumber: number
 }
 
-export class CreateBuyer implements UseCase<CreateBuyerParams, Buyer> {
-  run({ name, phonNumber }: CreateBuyerParams) {
+export class CreateBuyer implements UseCaseAsync<CreateBuyerParams, Buyer> {
+  async run({ name, phonNumber }: CreateBuyerParams) {
     const id = BuyerId.random()
     const n = new BuyerName(name)
     const pN = new BuyerPhoneNumber(phonNumber)
