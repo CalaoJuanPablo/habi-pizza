@@ -1,5 +1,154 @@
 {
-  "sales": [],
+  "sales": [
+    {
+      "id": "a960d452-fdfc-424b-92ab-3fa8b3751f2e",
+      "pizza": {
+        "id": "beef96e3-a39d-480e-acd2-7d9ef73e91b7",
+        "name": "Pizza chorizo,butifarra,salami",
+        "ingredients": [
+          {
+            "name": "chorizo",
+            "price": 3000
+          },
+          {
+            "name": "butifarra",
+            "price": 3000
+          },
+          {
+            "name": "salami",
+            "price": 4500
+          }
+        ],
+        "price": 20500
+      },
+      "buyer": {
+        "id": "23b07c43-38c4-45b1-9034-ac33a1627baa",
+        "name": "Juan Calao",
+        "phoneNumer": 3497347803
+      },
+      "createdAt": 1624454684074
+    },
+    {
+      "id": "536c717a-fdfe-4a43-b65c-d00925e2c0b9",
+      "pizza": {
+        "id": "754ae818-cf7c-4347-9780-4f7d13023d73",
+        "name": "Pizza chorizo, salami, pollo",
+        "ingredients": [
+          {
+            "name": "chorizo",
+            "price": 3000
+          },
+          {
+            "name": "salami",
+            "price": 4500
+          },
+          {
+            "name": "pollo",
+            "price": 5000
+          }
+        ],
+        "price": 22500
+      },
+      "buyer": {
+        "id": "159575b9-fd8e-4245-bd55-4edae5841b75",
+        "name": "Juan Calao",
+        "phoneNumer": 3497347803
+      },
+      "createdAt": 1624454734099
+    },
+    {
+      "id": "05f44a14-6f3b-46a3-8ec2-dc21f8388c9b",
+      "pizza": {
+        "id": "7c32d93b-cbf9-4ba6-853e-5d64ca1257d1",
+        "name": "Pizza chorizo, salami, tomate",
+        "ingredients": [
+          {
+            "name": "chorizo",
+            "price": 3000
+          },
+          {
+            "name": "salami",
+            "price": 4500
+          },
+          {
+            "name": "tomate",
+            "price": 3000
+          }
+        ],
+        "price": 20500
+      },
+      "buyer": {
+        "id": "6f01c146-0edd-4640-92ea-5f393dfb9a11",
+        "name": "Test Test",
+        "phoneNumer": 1234567890
+      },
+      "createdAt": 1624454788420
+    },
+    {
+      "id": "b7ffba0e-1ab8-444b-a9ba-cba7b23aa33e",
+      "pizza": {
+        "id": "54968323-20c1-49f9-b109-de153f830065",
+        "name": "Pizza butifarra, piña, tocineta",
+        "ingredients": [
+          {
+            "name": "butifarra",
+            "price": 3000
+          },
+          {
+            "name": "piña",
+            "price": 3000
+          },
+          {
+            "name": "tocineta",
+            "price": 3000
+          },
+          {
+            "name": "tomate",
+            "price": 3000
+          },
+          {
+            "name": "aceitunas",
+            "price": 3000
+          }
+        ],
+        "price": 25000
+      },
+      "buyer": {
+        "id": "ffca0f22-b755-459f-a0eb-fde45c831b34",
+        "name": "Juan Calao",
+        "phoneNumer": 3497347803
+      },
+      "createdAt": 1624454898462
+    },
+    {
+      "id": "3d8ab86a-0281-4177-83bb-cc13c062e9fe",
+      "pizza": {
+        "id": "12b1fa02-20c4-41ce-8dd1-f0cf27bc27cc",
+        "name": "Pizza piña, champiñones, peperoni",
+        "ingredients": [
+          {
+            "name": "piña",
+            "price": 3000
+          },
+          {
+            "name": "champiñones",
+            "price": 3000
+          },
+          {
+            "name": "peperoni",
+            "price": 3000
+          }
+        ],
+        "price": 19000
+      },
+      "buyer": {
+        "id": "4424e9c5-3e2b-44af-a2b5-966fde1c7e8e",
+        "name": "Juan Calao",
+        "phoneNumer": 3497347803
+      },
+      "createdAt": 1624454927681
+    }
+  ],
   "ingredients": [
     {
       "name": "pollo",

@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { PizzaFormProps, IFormInput } from './types'
 import Select from 'react-select'
-import { useForm, Controller, FieldError } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { capitalize, parseCurrency } from '../../helpers'
 import { IngredientRawType } from '../HomePage'
 import { Ingredient } from '../../../contexts/ingredient/domain/Ingredient'

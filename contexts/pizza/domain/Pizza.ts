@@ -13,7 +13,7 @@ interface IPizza {
 
 export class Pizza {
   readonly id: PizzaId
-  readonly name: PizzaName
+  name: PizzaName
   ingredients: Array<Ingredient>
   price: PizzaPrice
 
@@ -51,6 +51,14 @@ export class Pizza {
   updateIngredients(ingredients: Ingredient[]) {
     this.ingredients = ingredients
     this.calculatePrice()
+    this.updateName()
+  }
+
+  private updateName() {
+    const ingredietnsNames = this.ingredients
+      .slice(0, 3)
+      .map(({ name }) => name)
+    this.name = new PizzaName(`Pizza ${ingredietnsNames.join(', ')}`)
   }
 
   private calculatePrice() {
