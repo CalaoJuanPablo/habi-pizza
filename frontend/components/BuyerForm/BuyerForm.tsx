@@ -3,10 +3,7 @@ import { BuyerFormProps, IFormInput, CreateSaleStateType } from './types'
 import { useForm } from 'react-hook-form'
 import { pizzaHabiUseCases } from '../../../contexts'
 import { SuccessOrder } from '../SuccessOrder'
-
-const joinName = (firstName: string, lastName: string) =>
-  `${firstName} ${lastName}`
-const parsePhoneNumber = (phoneNumberStr: string) => Number(phoneNumberStr)
+import { joinName, parsePhoneNumber } from '../../helpers'
 
 export const BuyerForm: FC<BuyerFormProps> = ({
   pizzaInstance,
