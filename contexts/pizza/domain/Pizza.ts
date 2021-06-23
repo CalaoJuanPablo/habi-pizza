@@ -22,6 +22,7 @@ export class Pizza {
     this.name = name
     this.ingredients = ingredients
     this.price = new PizzaPrice(BASE_PRICE)
+    this.calculatePrice()
   }
 
   static fromJSON(rawData: {
